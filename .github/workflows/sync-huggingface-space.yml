@@ -1,0 +1,81 @@
+# Syncs this repo's main branch → https://huggingface.co/spaces/HDD-Lab/odc-sci
+#
+# Secret (GitHub → Settings → Secrets and variables → Actions):
+#   HF_TOKEN — Hugging Face access token with write access to the Space
+#
+# Run manually:
+#   gh workflow run "Sync to Hugging Face Space" --ref main
+#
+# Uses huggingface_hub upload_folder (handles Xet binary storage automatically).
+
+name: Sync to Hugging Face Space
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: huggingface-space-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install huggingface_hub with Xet support
+        run: pip install "huggingface_hub[hf_xet]" --quiet
+
+      - name: Upload Space to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python - <<'EOF'
+          import os, sys
+          from huggingface_hub import HfApi
+
+          token = os.environ.get("HF_TOKEN", "")
+          if not token:
+              print("::error::Missing repository secret HF_TOKEN")
+              sys.exit(1)
+
+          api = HfApi(token=token)
+
+          # Verify token
+          try:
+              user = api.whoami()["name"]
+              print(f"Uploading as HuggingFace user: {user}")
+          except Exception as e:
+              print(f"::error::Token invalid or whoami failed: {e}")
+              sys.exit(1)
+
+          api.upload_folder(
+              folder_path=".",
+              repo_id="HDD-Lab/odc-sci",
+              repo_type="space",
+              commit_message=f"Sync from GitHub ({os.environ.get('GITHUB_SHA', 'unknown')[:7]})",
+              ignore_patterns=[
+                  ".git/**",
+                  ".github/**",
+                  ".secrets/**",
+                  "renv/**",
+                  "renv.lock",
+                  ".Rprofile",
+                  ".Rproj.user/**",
+                  "*.Rproj",
+                  ".rscignore",
+                  "rsconnect/**",
+                  ".claude/**",
+              ],
+          )
+          print("Upload complete.")
+          EOF

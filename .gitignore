@@ -1,0 +1,9 @@
+secrets/
+.secrets/
+*.json
+.Rhistory
+.RData
+.DS_Store
+.Rproj.user/
+rsconnect/
+www/img/odc-logo.png

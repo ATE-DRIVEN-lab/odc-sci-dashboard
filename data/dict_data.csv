@@ -1,0 +1,30 @@
+"VariableName","Title","Unit","Description","DataType","PermittedValues","MinimumValue","MaximumValue","Comments"
+"ODCAccessionNbr","ODC accession number","NA","ODC-SCI assigned accession number (ID)","numeric","NA","NA","NA","automatically assigned by ODC-SCI at time of dataset creation"
+"DOI","DOI","NA","DOI assigned to dataset","string","NA","NA","NA","automatically assigned by ODC-SCI when approved for publication"
+"DatasetTitle","Dataset title","NA","Published dataset title","string","NA","NA","NA","created by dataset author"
+"DatasetTyp","Dataset type","NA","Identifies type of data contained in dataset; datasets may include one or more types of data [types: animal: data from animal study; animal - derived: data derived from modelling animal study data; clinical - data from clinical study; clinical - hypothetical: artifical data created to mimic clinical study data; cell: cell culture data (in vitro data)]","categorical","animal; animal - derived; cell; clinical; clinical - hypothetical","NA","NA",NA
+"Year","Publication year","year","Year dataset was published on ODC-SCI","ordinal","NA","2018","2026",NA
+"Laboratory","Laboratory name","NA","Name of publishing laboratory on ODC-SCI","string","NA","NA","NA",NA
+"StudyLeader","Study leader","NA","Name of person responsible for overseeing project","string","NA","NA","NA",NA
+"SubjectNbrs","Number of unique subjects in dataset","NA","Total number of unique subjects reported in dataset (animal and/or deidentified human)","numeric","NA","1","1125","unique subject IDs associated with cell (in vitro) data are EXCLUDED from this count"
+"SpeciesTyp","Species type(s) in dataset","NA","Name of species type(s) reported in dataset [species: human (deidentified); mouse; pig; primate; rat]","categorical","human (deidentified); monkey; mouse; pig; rat","NA","NA",NA
+"SpeciesStrainTyp","Strain type(s) in dataset","NA","Name of strain type(s) reported in dataset","string","NA","NA","NA",NA
+"SexTyp","Sex type(s) in dataset","NA","Sex type(s) reported in dataset [sex types: female; male; unknown: data marked unknown by author; not reported: data not reported and/or variable missing from dataset entirely]","categorical","female; male; unknown; not reported","NA","NA",NA
+"AnimalSourceNam","Vendor or origin of the subjects","NA","Vendor or origin of research subjects reported in dataset",NA,NA,NA,NA,NA
+"AgeVal","Age range of subjects","NA","Age range of subjects reported in dataset",NA,NA,NA,NA,"not standardized to a specific experimental time"
+"BodyWgtMeasrVal","Weight range of subjects","grams (g)","Weight range of subjects reported in dataset",NA,NA,NA,NA,"not standardized to a specific experimental time"
+"InjuryTyp","Type or model of injury","NA","Type(s) or model(s) of spinal cord injury reported in the dataset [injury types: contusion; neurologically intact; transection - hemisection; transection - DLQ]","categorical","contusion; neurologically intact; transection - hemisection; transection - DLQ",NA,NA,NA
+"InjuryLevelAnatomical","Anatomical level of spinal cord injury","NA","Anatomical level of spinal cord injury [levels: cervical; thoracic; lumbar]","categorical","cervical; thoracic; lumbar","NA","NA",NA
+"InjuryLevelSpinal","Spinal cord level of the injury","NA","Spinal cord level at which the injury was performed including segment and number (e.g. C5)","string",NA,NA,NA,NA
+"InjuryLaterality","Injury laterality","NA","Laterality of planned SCI lesion (i.e. the side that was affected during surgical induction of SCI) [Laterality: left - left side; right - right side; central - midline]","categorical",NA,NA,NA,NA
+"InjuryDevice","Device used for injury","NA","Name of the device(s) used for the injury [Device(s): {INSERT NAME OF DEVICE(S)}]",NA,NA,NA,NA,NA
+"InjurySeverity","Injury severity","NA","Injury severity as reported in dataset and/or dataset metadata [in contusion models: mild; moderate; severe; in transection models: incomplete; complete; in clinical data: AIS score; not reported]","categorical","mild; moderate; severe; incomplete; complete; AIS score A-E; not reported","NA","NA",NA
+"InjuryContusionDataAvail","Contusion model data available","NA","A list of programmed and actual contusion model parameters reported in dataset and/or dataset metadata [data: programmed force; force; programmed displacement; displacement; programmed dwell time; dwell time; programmed velocity; velocity]","categorical","programmed force; force; programmed displacement; displacement; programmed dwell time; dwell time; programmed velocity; velocity","NA","NA",NA
+"Locomotion","Locomotor behaviour tests","NA","A list of locomotor behaviour tests [tests: BBB: Basso-Beattie-Bresnahan locomotor score; BMS: Basso Mouse Scale for locomotion; ladder walking]","categorical","BBB; BMS; ladder walking",NA,NA,NA
+"OtherBehaviour","Behaviour tests (non-locomotor)","NA","A list of non-locomotor behaviour tests reported in dataset","string",NA,NA,NA,NA
+"InterventionTyp","Intervention type","NA","Broad classification of intervention type(s) reported in dataset [intervention types: drug/agent; electrical stimulation; diet; environmental; fecal microbiota transplant; genetic; graft/cellular; optogenetic; rehabilitative training]","categorical","drug/agent; electrical stimulation; diet; environmental; fecal microbiota transplant; genetic; graft/cellular; optogenetic; rehabilitative training",NA,NA,NA
+"InterventionAgent","Intervention agent","NA",NA,NA,NA,NA,NA,NA
+"AuthorKeywords","Author keywords","NA","Author keywords in metadata","string",NA,NA,NA,NA
+"RelatedDatasets","Related datasets","NA","Related datasets on ODC-SCI (e.g., datasets that contain the same subjects and/or contain related experimental data)","numeric",NA,NA,NA,NA
+"Purpose","Study purpose","NA",NA,NA,NA,NA,NA,NA
+"Notes","Notes","NA",NA,NA,NA,NA,NA,NA
